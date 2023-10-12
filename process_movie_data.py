@@ -3,12 +3,13 @@
 import csv
 
 
-def find_top_N(filename, N = 5):
+def find_top_N(filename, N = 10):
     """Finds the top N highest grossing movies in a CSV dataset.
        Input: filename, a string - points to filename of dataset
        Output: None
        Effect: should print N lines of text
     """
+
     # read in file contents as list of dictionaries
     with open(filename) as f:
         csvr = csv.DictReader(f)
@@ -18,6 +19,7 @@ def find_top_N(filename, N = 5):
     for row in rows:
         row["Gross"] = int(row["Gross"])
         row["Year"] = int(row["Release Date"][:4])
+
 
     # Sort data and get top N
     gross_sort = lambda x : x["Gross"]
